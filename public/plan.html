@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanning Bed Build Plan</title>
+<style>
+  body { font-family: sans-serif; background: #f5f0e8; margin: 0; padding: 24px; color: #1a1a1a; }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  .sub { color: #888; font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 16px; color: #555; border-bottom: 1px solid #ccc; padding-bottom: 6px; margin-top: 36px; }
+  svg { display: block; background: white; border: 1px solid #ddd; border-radius: 10px; margin-top: 10px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: 12px; color: #444; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .swatch { display: inline-block; width: 18px; height: 10px; border-radius: 2px; border: 1px solid #999; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+  th { background: #3b2f1e; color: white; padding: 8px 12px; text-align: left; }
+  td { padding: 7px 12px; border-bottom: 1px solid #e0d5c0; }
+  tr:nth-child(even) td { background: #fdf6e3; }
+  ol { padding-left: 0; list-style: none; }
+  ol li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .num { background: #d97706; color: white; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; flex-shrink: 0; }
+  .max600 { max-width: 600px; }
+</style>
+</head>
+<body>
+
+<h1>Tanning Bed — Build Plan</h1>
+<p class="sub">170 × 85 cm · Recycled bunk-bed pine · All dimensions in cm</p>
+
+<!-- ═══════════════ TOP VIEW ═══════════════ -->
+<h2>1 — Top View (Plan)</h2>
+<svg viewBox="0 0 640 400" width="100%" style="max-width:900px">
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="arrR" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- Padding offset: 80,60 ; scale 3px/cm ; 170×85cm = 510×255px -->
+  <g transform="translate(80,60)">
+
+    <!-- Outer rectangle -->
+    <rect x="0" y="0" width="510" height="255" fill="#e8d5b0" stroke="#5a3e1b" stroke-width="2"/>
+
+    <!-- Inner fill -->
+    <rect x="12" y="12" width="486" height="231" fill="#f9f3e6"/>
+
+    <!-- Left end rail -->
+    <rect x="0" y="0" width="12" height="255" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+    <!-- Right end rail -->
+    <rect x="498" y="0" width="12" height="255" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+    <!-- Top side rail -->
+    <rect x="0" y="0" width="510" height="12" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+    <!-- Bottom side rail -->
+    <rect x="0" y="243" width="510" height="12" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+
+    <!-- 14 Slats (each 27px wide, gap ~8px) -->
+    <!-- total inner width = 486px, 14 slats × 27 = 378, gaps = 108 / 13 = 8.3px -->
+    <rect x="12"   y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="47.3" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="82.6" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="117.9" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="153.2" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="188.5" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <!-- hinge at 180px = 60cm from left (backrest side) -->
+    <rect x="223.8" y="12" width="27" height="231" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <!-- hinge line at 180px -->
+    <rect x="259.1" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="294.4" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="329.7" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="365.0" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="400.3" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="435.6" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="470.9" y="12" width="27" height="231" fill="#f0c070" stroke="#5a3e1b" stroke-width="0.8"/>
+
+    <!-- Hinge line at x=180 (60cm) -->
+    <line x1="180" y1="0" x2="180" y2="255" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="10,5"/>
+
+    <!-- Legs (circles at corners) -->
+    <circle cx="6" cy="6" r="9" fill="#3b2f1e"/>
+    <circle cx="6" cy="249" r="9" fill="#3b2f1e"/>
+    <circle cx="504" cy="6" r="9" fill="#3b2f1e"/>
+    <circle cx="504" cy="249" r="9" fill="#3b2f1e"/>
+
+    <!-- Section labels -->
+    <text x="90" y="135" font-size="13" fill="#666" text-anchor="middle" font-weight="700" opacity="0.6">BACKREST</text>
+    <text x="90" y="150" font-size="11" fill="#666" text-anchor="middle" opacity="0.6">60 cm</text>
+    <text x="345" y="135" font-size="13" fill="#666" text-anchor="middle" font-weight="700" opacity="0.6">FIXED BASE</text>
+    <text x="345" y="150" font-size="11" fill="#666" text-anchor="middle" opacity="0.6">110 cm</text>
+
+    <!-- Hinge label -->
+    <text x="186" y="22" font-size="9" fill="#c0392b" font-weight="700">HINGE</text>
+
+    <!-- ── Dimension lines ── -->
+    <!-- Total width 170cm -->
+    <line x1="0" y1="-22" x2="510" y2="-22" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="255" y="-27" font-size="11" fill="#333" text-anchor="middle" font-weight="700">170 cm</text>
+    <!-- Tick marks -->
+    <line x1="0" y1="-30" x2="0" y2="-14" stroke="#333" stroke-width="1"/>
+    <line x1="510" y1="-30" x2="510" y2="-14" stroke="#333" stroke-width="1"/>
+
+    <!-- Total depth 85cm -->
+    <line x1="532" y1="0" x2="532" y2="255" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="549" y="132" font-size="11" fill="#333" text-anchor="middle" font-weight="700" transform="rotate(90,549,132)">85 cm</text>
+    <line x1="524" y1="0" x2="540" y2="0" stroke="#333" stroke-width="1"/>
+    <line x1="524" y1="255" x2="540" y2="255" stroke="#333" stroke-width="1"/>
+
+    <!-- Backrest 60cm -->
+    <line x1="0" y1="277" x2="180" y2="277" stroke="#c0392b" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="90" y="292" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="700">60 cm (backrest)</text>
+    <line x1="0" y1="269" x2="0" y2="285" stroke="#c0392b" stroke-width="1"/>
+    <line x1="180" y1="269" x2="180" y2="285" stroke="#c0392b" stroke-width="1"/>
+
+    <!-- Fixed base 110cm -->
+    <line x1="180" y1="277" x2="510" y2="277" stroke="#5a3e1b" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="345" y="292" font-size="10" fill="#5a3e1b" text-anchor="middle" font-weight="700">110 cm (fixed base)</text>
+    <line x1="510" y1="269" x2="510" y2="285" stroke="#5a3e1b" stroke-width="1"/>
+
+    <!-- Rail width -->
+    <line x1="0" y1="310" x2="12" y2="310" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="6" y="323" font-size="9" fill="#333" text-anchor="middle">4 cm</text>
+    <line x1="0" y1="302" x2="0" y2="318" stroke="#333" stroke-width="1"/>
+    <line x1="12" y1="302" x2="12" y2="318" stroke="#333" stroke-width="1"/>
+
+    <!-- Leg label -->
+    <text x="30" y="20" font-size="9" fill="#3b2f1e">● LEG</text>
+  </g>
+</svg>
+
+<div class="legend">
+  <span><span class="swatch" style="background:#c9a96e"></span> Side &amp; end rails — 4×4 cm</span>
+  <span><span class="swatch" style="background:#ddc48a"></span> Backrest slats (×6)</span>
+  <span><span class="swatch" style="background:#f0c070"></span> Fixed base slats (×8)</span>
+  <span><span class="swatch" style="background:transparent;border:2px dashed #c0392b"></span> Hinge line at 60 cm</span>
+  <span><span class="swatch" style="background:#3b2f1e"></span> Leg positions (×4)</span>
+</div>
+
+<!-- ═══════════════ SIDE VIEW ═══════════════ -->
+<h2>2 — Side View (Profile)</h2>
+<svg viewBox="0 0 680 220" width="100%" style="max-width:900px">
+  <g transform="translate(60,20)">
+
+    <!-- Ground line -->
+    <line x1="-10" y1="175" x2="560" y2="175" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="-15" y="179" font-size="9" fill="#aaa">GROUND</text>
+
+    <!-- FIXED BASE (right side, 330px = 110cm) -->
+    <!-- Frame board -->
+    <rect x="180" y="130" width="330" height="12" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1.2"/>
+    <!-- Slat surface -->
+    <rect x="180" y="122" width="330" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="1"/>
+
+    <!-- Legs (fixed base: at 180 and 510) -->
+    <rect x="174" y="142" width="12" height="33" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+    <rect x="504" y="142" width="12" height="33" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+    <!-- Leg labels -->
+    <text x="180" y="170" font-size="8" fill="#5a3e1b" text-anchor="middle">LEG</text>
+    <text x="510" y="170" font-size="8" fill="#5a3e1b" text-anchor="middle">LEG</text>
+
+    <!-- Leg height dim -->
+    <line x1="530" y1="142" x2="530" y2="175" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="545" y="162" font-size="9" fill="#333" font-weight="700">15 cm</text>
+    <line x1="524" y1="142" x2="536" y2="142" stroke="#333" stroke-width="1"/>
+    <line x1="524" y1="175" x2="536" y2="175" stroke="#333" stroke-width="1"/>
+
+    <!-- ADJUSTABLE BACKREST (left side, 60cm = 180px, angled 30°) -->
+    <!-- cos30=0.866  sin30=0.5  length=180px -->
+    <!-- hinge at x=180,y=130 ; tip at x=180-180*0.866=180-155.9=24, y=130-180*0.5=130-90=40 -->
+    <!-- Frame of backrest -->
+    <line x1="180" y1="130" x2="24" y2="40" stroke="#5a3e1b" stroke-width="12" stroke-linecap="round"/>
+    <!-- Slat surface (offset slightly) -->
+    <line x1="180" y1="122" x2="24" y2="32" stroke="#ddc48a" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Prop: from midpoint of backrest to frame -->
+    <!-- midpoint of backrest: x=102, y=85; prop base on fixed frame ~x=300,y=130 -->
+    <line x1="102" y1="85" x2="290" y2="130" stroke="#5a3e1b" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="none"/>
+    <text x="215" y="125" font-size="9" fill="#5a3e1b" font-weight="700">PROP</text>
+    <!-- Prop notch marks on frame -->
+    <line x1="260" y1="122" x2="260" y2="130" stroke="#c0392b" stroke-width="2"/>
+    <line x1="290" y1="122" x2="290" y2="130" stroke="#c0392b" stroke-width="2"/>
+    <line x1="320" y1="122" x2="320" y2="130" stroke="#c0392b" stroke-width="2"/>
+    <text x="290" y="118" font-size="8" fill="#c0392b" text-anchor="middle">notches</text>
+
+    <!-- Hinge pivot -->
+    <circle cx="180" cy="130" r="6" fill="#c0392b"/>
+    <text x="190" y="128" font-size="8" fill="#c0392b" font-weight="700">HINGE</text>
+
+    <!-- Angle arc -->
+    <path d="M 215,130 A 35,35 0 0,0 193,99" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="225" y="110" font-size="10" fill="#c0392b" font-weight="700">30°</text>
+
+    <!-- Leg at hinge (middle leg) -->
+    <rect x="174" y="142" width="12" height="33" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1"/>
+
+    <!-- Total length -->
+    <line x1="0" y1="-10" x2="510" y2="-10" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="255" y="-15" font-size="11" fill="#333" text-anchor="middle" font-weight="700">170 cm</text>
+    <line x1="0" y1="-18" x2="0" y2="-2" stroke="#333" stroke-width="1"/>
+    <line x1="510" y1="-18" x2="510" y2="-2" stroke="#333" stroke-width="1"/>
+
+    <!-- Backrest length -->
+    <line x1="0" y1="195" x2="180" y2="195" stroke="#c0392b" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="90" y="208" font-size="9" fill="#c0392b" text-anchor="middle" font-weight="700">60 cm</text>
+    <line x1="0" y1="188" x2="0" y2="202" stroke="#c0392b" stroke-width="1"/>
+    <line x1="180" y1="188" x2="180" y2="202" stroke="#c0392b" stroke-width="1"/>
+
+    <!-- Fixed base length -->
+    <line x1="180" y1="195" x2="510" y2="195" stroke="#5a3e1b" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="345" y="208" font-size="9" fill="#5a3e1b" text-anchor="middle" font-weight="700">110 cm</text>
+    <line x1="510" y1="188" x2="510" y2="202" stroke="#5a3e1b" stroke-width="1"/>
+
+    <!-- Section labels -->
+    <text x="90" y="55" font-size="11" fill="#666" text-anchor="middle" font-weight="700">BACKREST</text>
+    <text x="345" y="108" font-size="11" fill="#666" text-anchor="middle" font-weight="700">FIXED BASE</text>
+  </g>
+</svg>
+
+<!-- ═══════════════ FRONT VIEW ═══════════════ -->
+<h2>3 — Front View (Foot End, 85 cm wide)</h2>
+<svg viewBox="0 0 360 200" width="100%" style="max-width:500px" class="max600">
+  <g transform="translate(60,30)">
+
+    <!-- Ground line -->
+    <line x1="-10" y1="145" x2="275" y2="145" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <!-- Two legs -->
+    <rect x="0" y="100" width="12" height="45" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1.2"/>
+    <rect x="243" y="100" width="12" height="45" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1.2"/>
+
+    <!-- End rail -->
+    <rect x="0" y="88" width="255" height="12" fill="#c9a96e" stroke="#5a3e1b" stroke-width="1.5"/>
+
+    <!-- 14 slats seen end-on -->
+    <rect x="12" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="31.2" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="50.4" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="69.6" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="88.8" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="108.0" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="127.2" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="146.4" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="165.6" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="184.8" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="204.0" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="223.2" y="80" width="17" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+    <rect x="238" y="80" width="5" height="8" fill="#ddc48a" stroke="#5a3e1b" stroke-width="0.8"/>
+
+    <!-- Width dimension -->
+    <line x1="0" y1="-15" x2="255" y2="-15" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="127" y="-20" font-size="11" fill="#333" text-anchor="middle" font-weight="700">85 cm</text>
+    <line x1="0" y1="-22" x2="0" y2="-8" stroke="#333" stroke-width="1"/>
+    <line x1="255" y1="-22" x2="255" y2="-8" stroke="#333" stroke-width="1"/>
+
+    <!-- Leg height -->
+    <line x1="278" y1="100" x2="278" y2="145" stroke="#333" stroke-width="1" marker-start="url(#arrR)" marker-end="url(#arr)"/>
+    <text x="295" y="126" font-size="9" fill="#333" font-weight="700" transform="rotate(90,295,126)">15 cm</text>
+    <line x1="271" y1="100" x2="285" y2="100" stroke="#333" stroke-width="1"/>
+    <line x1="271" y1="145" x2="285" y2="145" stroke="#333" stroke-width="1"/>
+
+    <!-- Labels -->
+    <text x="127" y="68" font-size="10" fill="#888" text-anchor="middle">14 slats × 9 cm wide</text>
+    <text x="6" y="137" font-size="8" fill="#5a3e1b" text-anchor="middle">LEG</text>
+    <text x="249" y="137" font-size="8" fill="#5a3e1b" text-anchor="middle">LEG</text>
+  </g>
+</svg>
+
+<!-- ═══════════════ CUT LIST ═══════════════ -->
+<h2>4 — Cut List</h2>
+<table>
+  <thead>
+    <tr><th>Part</th><th>Qty</th><th>Length</th><th>Width</th><th>Thickness</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Side rails</b></td><td>2</td><td>170 cm</td><td>8 cm</td><td>4 cm</td><td>Long bed-frame boards (trim from ~190 cm)</td></tr>
+    <tr><td><b>End rails</b></td><td>2</td><td>85 cm</td><td>8 cm</td><td>4 cm</td><td>Shorter frame pieces</td></tr>
+    <tr><td><b>Legs</b></td><td>4</td><td>15 cm</td><td>8 cm</td><td>8 cm</td><td>Stair risers / thick offcuts</td></tr>
+    <tr><td><b>Slats</b></td><td>14</td><td>85 cm</td><td>9 cm</td><td>2.5 cm</td><td>Existing bed slats (reuse as-is)</td></tr>
+    <tr><td><b>Backrest prop</b></td><td>1</td><td>40 cm</td><td>4 cm</td><td>4 cm</td><td>Any leftover piece</td></tr>
+    <tr><td><b>Hinge bolts</b></td><td>2</td><td>—</td><td>—</td><td>—</td><td>Reuse bunk door hardware</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ ASSEMBLY ═══════════════ -->
+<h2>5 — Assembly Order</h2>
+<ol>
+  <li><span class="num">1</span><span>Cut side rails to <b>170 cm</b> from the long bed-frame boards</span></li>
+  <li><span class="num">2</span><span>Attach end rails at both ends with 2 screws each → outer rectangle formed</span></li>
+  <li><span class="num">3</span><span>Screw <b>4 legs (15 cm)</b> flush to the four corners underneath</span></li>
+  <li><span class="num">4</span><span>Mark hinge point at <b>110 cm from foot end</b> on both side rails</span></li>
+  <li><span class="num">5</span><span>Lay and screw <b>8 slats</b> on fixed section, <b>6 slats</b> on backrest section</span></li>
+  <li><span class="num">6</span><span>Bolt backrest to fixed section at hinge with 2 bolts (reuse barn-door hinges)</span></li>
+  <li><span class="num">7</span><span>Cut <b>3 notches</b> in the fixed-side end of the side rails for the prop (~100°, 120°, 140°)</span></li>
+  <li><span class="num">8</span><span>Sand all surfaces, apply wood oil for outdoor use</span></li>
+</ol>
+
+</body>
+</html>
