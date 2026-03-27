@@ -9,6 +9,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  administration: write
 
 concurrency:
   group: pages
@@ -20,32 +21,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure GitHub Pages source
+      - name: Enable GitHub Pages with Actions source
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
           REPO="${{ github.repository }}"
           API="https://api.github.com/repos/${REPO}/pages"
-          H1='-H "Authorization: Bearer '"$TOKEN"'"'
-          H2='-H "Accept: application/vnd.github+json"'
-          H3='-H "X-GitHub-Api-Version: 2022-11-28"'
 
-          # Delete existing Pages config (ignore error if not set)
-          curl -s -X DELETE \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "$API" || true
-
-          sleep 3
-
-          # Create Pages with GitHub Actions as source
-          RESULT=$(curl -s -w "\n%{http_code}" -X POST \
+          # Try to create Pages site with workflow source
+          echo "Creating Pages..."
+          curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
             -H "Authorization: Bearer $TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "$API" \
-            -d '{"build_type":"workflow"}')
-          echo "Create result: $RESULT"
+            -d '{"build_type":"workflow"}'
+
+          echo ""
+          echo "Checking current Pages status..."
+          curl -s \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$API"
 
           sleep 5
 
