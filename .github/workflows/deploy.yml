@@ -20,16 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Enable Pages via gh CLI
-        run: |
-          gh api repos/${{ github.repository }}/pages \
-            --method POST \
-            -f build_type=workflow \
-            --silent || true
-          sleep 5
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
