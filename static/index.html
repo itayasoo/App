@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BackgammonPro – Premium Backgammon Sets</title>
+  <meta name="description" content="Shop premium handcrafted backgammon sets. Classic, Deluxe, Tournament, and Travel editions." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #fafaf9; color: #1c1917; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; }
+    ul { list-style: none; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 50; background: #1c1917; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .nav-inner { max-width: 1152px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .nav-fb { display: flex; align-items: center; gap: 6px; background: #1d63ed; color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 0.875rem; font-weight: 600; transition: background 0.15s; }
+    .nav-fb:hover { background: #1447e6; }
+    .nav-fb svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #1c1917 0%, #292524 60%, #78350f 100%); color: #fff; padding: 80px 16px; text-align: center; }
+    .hero-sub { color: #fbbf24; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 span { color: #fbbf24; }
+    .hero p { color: #d6d3d1; font-size: 1.1rem; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn-primary { background: #f59e0b; color: #1c1917; font-weight: 700; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; transition: background 0.15s; display: inline-block; }
+    .btn-primary:hover { background: #fbbf24; }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; font-weight: 600; padding: 14px 32px; border-radius: 999px; font-size: 1.1rem; transition: background 0.15s; display: inline-block; }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .hero-note { margin-top: 20px; color: #a8a29e; font-size: 0.875rem; }
+
+    /* TRUST BAR */
+    .trust { background: #f59e0b; color: #1c1917; }
+    .trust-inner { max-width: 1152px; margin: 0 auto; padding: 12px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 0.875rem; font-weight: 600; }
+    .trust-item { display: flex; align-items: center; gap: 6px; }
+
+    /* PRODUCTS */
+    .products { max-width: 1152px; margin: 0 auto; padding: 56px 16px; }
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-title h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 8px; }
+    .section-title p { color: #79716b; font-size: 1.1rem; }
+    .section-title p strong { color: #d97706; font-weight: 700; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+
+    /* CARD */
+    .card { background: #fff; border-radius: 16px; border: 2px solid #e7e5e4; overflow: hidden; cursor: pointer; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: relative; }
+    .card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+    .card.selected { transform: scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+    .card.selected.amber  { border-color: #fbbf24; }
+    .card.selected.emerald { border-color: #34d399; }
+    .card.selected.blue   { border-color: #60a5fa; }
+    .card.selected.rose   { border-color: #fb7185; }
+    .card-badge { position: absolute; top: 14px; right: 14px; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; z-index: 1; }
+    .badge-amber   { background: #f59e0b; }
+    .badge-emerald { background: #059669; }
+    .badge-blue    { background: #2563eb; }
+    .badge-rose    { background: #e11d48; }
+    .card-img { display: flex; align-items: center; justify-content: center; font-size: 4.5rem; padding: 40px 0; }
+    .bg-amber   { background: #fffbeb; }
+    .bg-emerald { background: #ecfdf5; }
+    .bg-blue    { background: #eff6ff; }
+    .bg-rose    { background: #fff1f2; }
+    .card-body { padding: 20px; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+    .card-name { font-weight: 700; font-size: 1.05rem; color: #1c1917; }
+    .card-subtitle { font-size: 0.875rem; font-weight: 500; margin-top: 2px; }
+    .accent-amber   { color: #b45309; }
+    .accent-emerald { color: #047857; }
+    .accent-blue    { color: #1d4ed8; }
+    .accent-rose    { color: #be123c; }
+    .card-price { font-weight: 800; font-size: 1.5rem; color: #1c1917; }
+    .card-desc { color: #79716b; font-size: 0.875rem; margin: 8px 0 14px; line-height: 1.6; }
+    .card-features { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .card-feature { display: flex; gap: 8px; font-size: 0.875rem; color: #44403b; align-items: flex-start; }
+    .check { font-weight: 700; flex-shrink: 0; }
+    .card-meta { display: flex; gap: 10px; font-size: 0.75rem; color: #a8a29e; border-top: 1px solid #f5f5f4; padding-top: 10px; }
+    .card-selected-bar { border-top: 2px solid; padding: 8px 20px; font-size: 0.875rem; font-weight: 600; }
+    .bar-amber   { border-color: #fbbf24; background: #fffbeb; color: #b45309; }
+    .bar-emerald { border-color: #34d399; background: #ecfdf5; color: #047857; }
+    .bar-blue    { border-color: #60a5fa; background: #eff6ff; color: #1d4ed8; }
+    .bar-rose    { border-color: #fb7185; background: #fff1f2; color: #be123c; }
+
+    /* ORDER */
+    .order-wrap { max-width: 560px; margin: 0 auto; padding: 0 16px 64px; }
+    .order-box { background: #fff; border-radius: 16px; border: 1px solid #e7e5e4; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
+    .order-head { background: #1c1917; color: #fff; padding: 20px 24px; text-align: center; }
+    .order-head h3 { font-size: 1.2rem; font-weight: 700; }
+    .order-head p { color: #d6d3d1; font-size: 0.875rem; margin-top: 4px; }
+    .order-head p strong { color: #fbbf24; }
+    .order-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .order-hint { text-align: center; color: #a8a29e; font-size: 0.875rem; padding: 16px 0; }
+    .btn-messenger { width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: #2563eb; color: #fff; font-weight: 700; padding: 16px 24px; border-radius: 12px; font-size: 1.05rem; border: none; cursor: pointer; transition: background 0.15s; }
+    .btn-messenger:hover { background: #1d4ed8; }
+    .btn-whatsapp { width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: #22c55e; color: #fff; font-weight: 700; padding: 16px 24px; border-radius: 12px; font-size: 1.05rem; border: none; cursor: pointer; transition: background 0.15s; }
+    .btn-whatsapp:hover { background: #16a34a; }
+    .btn-messenger svg, .btn-whatsapp svg { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
+    .order-note { text-align: center; font-size: 0.75rem; color: #a8a29e; }
+
+    /* FAQ */
+    .faq { max-width: 672px; margin: 0 auto; padding: 0 16px 64px; }
+    .faq h2 { font-size: 1.6rem; font-weight: 700; text-align: center; margin-bottom: 28px; }
+    .faq-item { background: #fff; border: 1px solid #e7e5e4; border-radius: 12px; overflow: hidden; margin-bottom: 10px; }
+    .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.95rem; color: #292524; background: none; border: none; cursor: pointer; gap: 16px; }
+    .faq-q:hover { background: #fafaf9; }
+    .faq-icon { color: #f59e0b; font-size: 1.2rem; flex-shrink: 0; font-weight: 400; }
+    .faq-a { padding: 0 20px 16px; color: #57534d; font-size: 0.875rem; line-height: 1.7; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* FOOTER */
+    footer { background: #1c1917; color: #79716b; font-size: 0.875rem; margin-top: auto; }
+    .footer-inner { max-width: 1152px; margin: 0 auto; padding: 32px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-brand { font-weight: 700; color: #fff; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 60px 16px; }
+      .hero h1 { font-size: 1.9rem; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">♟️ BackgammonPro</div>
+    <a href="https://www.facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener" class="nav-fb">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      Follow Us
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-sub">Premium Handcrafted Sets</p>
+  <h1>The Game of Kings,<br><span>Crafted for You</span></h1>
+  <p>Four stunning editions. One fixed price. Order directly via Facebook Messenger — no checkout hassle.</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-primary">Shop Now — $149</a>
+    <a href="https://www.facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener" class="btn-outline">Our Facebook Page</a>
+  </div>
+  <p class="hero-note">Free shipping · 30-day returns · Secure Messenger checkout</p>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <span class="trust-item">🚚 Free Shipping</span>
+    <span class="trust-item">🔒 Safe &amp; Secure</span>
+    <span class="trust-item">↩️ 30-Day Returns</span>
+    <span class="trust-item">💬 Live Chat Support</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products" class="products">
+  <div class="section-title">
+    <h2>Choose Your Edition</h2>
+    <p>All editions — one fixed price of <strong>$149</strong> with free shipping.</p>
+  </div>
+  <div class="cards">
+
+    <div class="card amber" data-id="classic" data-name="Classic Edition" onclick="selectCard(this)">
+      <div class="card-badge badge-amber">Best Seller</div>
+      <div class="card-img bg-amber">♟️</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="card-name">Classic Edition</div>
+            <div class="card-subtitle accent-amber">The timeless favourite</div>
+          </div>
+          <div class="card-price">$149</div>
+        </div>
+        <p class="card-desc">Our best-selling set crafted from solid walnut with smooth leather-wrapped interior. Perfect for everyday play at home.</p>
+        <ul class="card-features">
+          <li class="card-feature"><span class="check accent-amber">✓</span> Solid walnut wood case</li>
+          <li class="card-feature"><span class="check accent-amber">✓</span> Full-grain leather playing surface</li>
+          <li class="card-feature"><span class="check accent-amber">✓</span> 30 high-gloss checkers included</li>
+          <li class="card-feature"><span class="check accent-amber">✓</span> Professional dice &amp; shaker</li>
+          <li class="card-feature"><span class="check accent-amber">✓</span> Magnetic closure</li>
+        </ul>
+        <div class="card-meta"><span>📐 18" × 10" (open)</span><span>·</span><span>🪵 Walnut + leather</span></div>
+      </div>
+      <div class="card-selected-bar bar-amber" style="display:none">✓ Selected</div>
+    </div>
+
+    <div class="card emerald" data-id="deluxe" data-name="Deluxe Edition" onclick="selectCard(this)">
+      <div class="card-badge badge-emerald">Most Popular</div>
+      <div class="card-img bg-emerald">👑</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="card-name">Deluxe Edition</div>
+            <div class="card-subtitle accent-emerald">Luxury at every touch</div>
+          </div>
+          <div class="card-price">$149</div>
+        </div>
+        <p class="card-desc">Hand-stitched Italian leather exterior with mother-of-pearl inlaid checkers. A statement piece for discerning collectors.</p>
+        <ul class="card-features">
+          <li class="card-feature"><span class="check accent-emerald">✓</span> Italian leather exterior</li>
+          <li class="card-feature"><span class="check accent-emerald">✓</span> Mother-of-pearl inlaid checkers</li>
+          <li class="card-feature"><span class="check accent-emerald">✓</span> Velvet-lined interior</li>
+          <li class="card-feature"><span class="check accent-emerald">✓</span> Gold-plated hardware</li>
+          <li class="card-feature"><span class="check accent-emerald">✓</span> Gift box included</li>
+        </ul>
+        <div class="card-meta"><span>📐 20" × 12" (open)</span><span>·</span><span>🪵 Leather + pearl</span></div>
+      </div>
+      <div class="card-selected-bar bar-emerald" style="display:none">✓ Selected</div>
+    </div>
+
+    <div class="card blue" data-id="tournament" data-name="Tournament Edition" onclick="selectCard(this)">
+      <div class="card-badge badge-blue">Pro Choice</div>
+      <div class="card-img bg-blue">🏆</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="card-name">Tournament Edition</div>
+            <div class="card-subtitle accent-blue">Regulation play, pro level</div>
+          </div>
+          <div class="card-price">$149</div>
+        </div>
+        <p class="card-desc">Built to World Backgammon Federation specs. Preferred by competitive players worldwide. Serious game for serious players.</p>
+        <ul class="card-features">
+          <li class="card-feature"><span class="check accent-blue">✓</span> WBF regulation size</li>
+          <li class="card-feature"><span class="check accent-blue">✓</span> Anti-glare suede surface</li>
+          <li class="card-feature"><span class="check accent-blue">✓</span> Precision-weight checkers</li>
+          <li class="card-feature"><span class="check accent-blue">✓</span> Doubling cube included</li>
+          <li class="card-feature"><span class="check accent-blue">✓</span> Carry strap &amp; case</li>
+        </ul>
+        <div class="card-meta"><span>📐 24" × 14" (open)</span><span>·</span><span>🪵 Suede + aluminium</span></div>
+      </div>
+      <div class="card-selected-bar bar-blue" style="display:none">✓ Selected</div>
+    </div>
+
+    <div class="card rose" data-id="travel" data-name="Travel Edition" onclick="selectCard(this)">
+      <div class="card-img bg-rose">✈️</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="card-name">Travel Edition</div>
+            <div class="card-subtitle accent-rose">Play anywhere, anytime</div>
+          </div>
+          <div class="card-price">$149</div>
+        </div>
+        <p class="card-desc">Compact and lightweight with a hard-shell magnetic closure. Fits in your carry-on. Never miss a game on the road.</p>
+        <ul class="card-features">
+          <li class="card-feature"><span class="check accent-rose">✓</span> Ultra-lightweight design</li>
+          <li class="card-feature"><span class="check accent-rose">✓</span> Hard-shell magnetic case</li>
+          <li class="card-feature"><span class="check accent-rose">✓</span> Non-slip rubber base</li>
+          <li class="card-feature"><span class="check accent-rose">✓</span> All pieces stored inside</li>
+          <li class="card-feature"><span class="check accent-rose">✓</span> TSA carry-on friendly</li>
+        </ul>
+        <div class="card-meta"><span>📐 14" × 8" (open)</span><span>·</span><span>🪵 ABS shell + felt</span></div>
+      </div>
+      <div class="card-selected-bar bar-rose" style="display:none">✓ Selected</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORDER -->
+<div class="order-wrap">
+  <div class="order-box">
+    <div class="order-head">
+      <h3 id="order-title">Select a Set Above</h3>
+      <p id="order-sub" style="display:none">Fixed price — <strong>$149</strong> · Free shipping</p>
+    </div>
+    <div class="order-body" id="order-body">
+      <p class="order-hint">↑ Click a set above to select it, then order here.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How do I place an order? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Simply select your preferred edition above, then click 'Order via Messenger' or 'Order via WhatsApp'. We'll confirm your order, shipping address, and payment details over chat.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-icon">+</span></button>
+    <div class="faq-a">We accept PayPal, bank transfer, and cash on delivery (selected areas). Our team will guide you through the payment process in the chat.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How long does shipping take? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Standard shipping takes 5–7 business days. We ship worldwide. Tracking information is provided once your order is dispatched.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I return a set? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes — we offer a 30-day hassle-free return policy. If you're not satisfied, contact us and we'll arrange a free return.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Are the sets suitable as gifts? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Absolutely! All editions come in premium packaging. The Deluxe Edition includes a dedicated gift box. Let us know in the chat and we can add a personalised note.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">♟️ BackgammonPro</div>
+    <div class="footer-links">
+      <a href="https://www.facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <span>© 2026 BackgammonPro. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  var MESSENGER_URL = "https://m.me/YOUR_PAGE_NAME";
+  var WHATSAPP_NUMBER = "1234567890";
+  var selectedCard = null;
+
+  function selectCard(el) {
+    // Deselect previous
+    document.querySelectorAll(".card").forEach(function(c) {
+      c.classList.remove("selected");
+      c.querySelector(".card-selected-bar").style.display = "none";
+    });
+    // Select new
+    el.classList.add("selected");
+    el.querySelector(".card-selected-bar").style.display = "block";
+    selectedCard = { id: el.dataset.id, name: el.dataset.name };
+    // Update order section
+    document.getElementById("order-title").textContent = "Order: " + selectedCard.name;
+    document.getElementById("order-sub").style.display = "block";
+    document.getElementById("order-body").innerHTML =
+      '<button class="btn-messenger" onclick="orderMessenger()">' +
+        '<svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.652V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.26 5.889-3.26-6.56 6.963z"/></svg>' +
+        'Order via Messenger' +
+      '</button>' +
+      '<button class="btn-whatsapp" onclick="orderWhatsApp()">' +
+        '<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+        'Order via WhatsApp' +
+      '</button>' +
+      '<p class="order-note">We\'ll confirm your order and payment details over chat</p>';
+    // Scroll to order
+    setTimeout(function() {
+      document.querySelector(".order-wrap").scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }
+
+  function orderMessenger() {
+    if (!selectedCard) return;
+    var text = encodeURIComponent("Hi! I'd like to order the " + selectedCard.name + " – $149");
+    window.open(MESSENGER_URL + "?text=" + text, "_blank");
+  }
+
+  function orderWhatsApp() {
+    if (!selectedCard) return;
+    var text = encodeURIComponent("Hi! I'd like to order the BackgammonPro " + selectedCard.name + " – $149");
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank");
+  }
+
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var isOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function(i) {
+      i.classList.remove("open");
+      i.querySelector(".faq-icon").textContent = "+";
+    });
+    if (!isOpen) {
+      item.classList.add("open");
+      btn.querySelector(".faq-icon").textContent = "−";
+    }
+  }
+</script>
+</body>
+</html>
