@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   },
   // For GitHub Pages deployment at itayasoo.github.io/App
   basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
+  experimental: {
+    inlineCss: true,
+  },
 };
 
 export default nextConfig;
