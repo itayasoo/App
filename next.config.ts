@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // For GitHub Pages deployment at itayasoo.github.io/App
-  // basePath: "/App",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
 };
 
 export default nextConfig;
