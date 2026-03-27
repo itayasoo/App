@@ -36,7 +36,10 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /App
 
-      - name: Upload artifact
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: out/
