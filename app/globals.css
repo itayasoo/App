@@ -10,14 +10,28 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Custom scrollbar */
+/* Dark scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f0e8;
+  background: #1f2937;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a0845c;
+  background: #4b5563;
   border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* RTL support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* LTR override for numbers and symbols */
+.ltr {
+  direction: ltr;
+  display: inline-block;
 }
